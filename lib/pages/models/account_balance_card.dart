@@ -61,6 +61,7 @@ class _AccountBalanceCardState extends State<AccountBalanceCard> {
                       : Text(
                           "${currency(context).currencySymbol}10,500.89",
                           style: TextStyle(
+                            fontFamily: 'Roboto',
                             color: Colors.white,
                             fontSize: 30,
                             fontWeight: FontWeight.bold,

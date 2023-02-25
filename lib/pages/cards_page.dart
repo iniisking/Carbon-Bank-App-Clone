@@ -12,7 +12,7 @@ class CardsPage extends StatelessWidget {
       length: 2,
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+          padding: const EdgeInsets.symmetric(vertical: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             // ignore: prefer_const_literals_to_create_immutables

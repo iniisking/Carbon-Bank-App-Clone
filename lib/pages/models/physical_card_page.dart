@@ -15,67 +15,72 @@ class _PhysicalCardPageState extends State<PhysicalCardPage> {
     return Scaffold(
       body: Column(
         children: [
-          Container(
-            padding: EdgeInsets.all(12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Image.asset(
-                      "lib/images/credit card chip3.png",
-                      height: 50,
-                      color: Colors.white,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 25),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Image.asset(
+                        "lib/images/credit card chip3.png",
+                        height: 40,
+                        color: Colors.white,
+                      ),
+                      Image.asset(
+                        "lib/images/mastercard.png",
+                        height: 40,
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Center(
+                    child: Text(
+                      "5239 1400 000 4050",
+                      style: TextStyle(
+                        fontFamily: 'OCR-A',
+                        fontSize: 23,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        letterSpacing: 2,
+                      ),
                     ),
-                    Image.asset(
-                      "lib/images/mastercard.png",
-                      height: 40,
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Center(
-                  child: Text(
-                    "5239 1400 000 4050",
+                  ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  Text(
+                    "JJ THOMPSON",
                     style: TextStyle(
-                      fontFamily: 'Kredit',
-                      fontWeight: FontWeight.w900,
+                      fontFamily: 'OCR-A',
+                      fontSize: 20,
                       color: Colors.white,
-                      fontSize: 30,
-                      letterSpacing: 1,
+                      letterSpacing: 1.5,
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 25,
-                ),
-                Text(
-                  "JJ Thompson",
-                  style: TextStyle(
-                    fontFamily: 'Kredit',
-                    fontWeight: FontWeight.w900,
-                    color: Colors.white,
-                    fontSize: 28,
-                    letterSpacing: 1,
-                  ),
-                ),
-                Text(
-                  "03/25",
-                  style: TextStyle(
-                      fontFamily: 'Kredit',
-                      fontWeight: FontWeight.w900,
+                  Text(
+                    "03/25",
+                    style: TextStyle(
+                      fontFamily: 'OCR-A',
+                      fontSize: 20,
                       color: Colors.white,
-                      fontSize: 28,
-                      letterSpacing: 1),
+                      letterSpacing: 1.5,
+                    ),
+                  ),
+                ],
+              ),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('lib/images/black-pattern1.png'),
+                  fit: BoxFit.cover,
                 ),
-              ],
-            ),
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(16),
+              ),
             ),
           )
         ],

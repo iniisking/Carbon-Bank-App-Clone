@@ -95,6 +95,7 @@ class _TransactionCardState extends State<TransactionCard> {
                       Text(
                         "-${currency(context).currencySymbol}500",
                         style: TextStyle(
+                          fontFamily: 'Roboto',
                           color: Color(0xFF00001a),
                           fontSize: 19.5,
                           fontWeight: FontWeight.w700,
@@ -139,6 +140,7 @@ class _TransactionCardState extends State<TransactionCard> {
                       Text(
                         "${currency(context).currencySymbol}4,500",
                         style: TextStyle(
+                          fontFamily: 'Roboto',
                           color: Color(0xFF00001a),
                           fontSize: 19.5,
                           fontWeight: FontWeight.w700,
@@ -183,6 +185,7 @@ class _TransactionCardState extends State<TransactionCard> {
                       Text(
                         "-${currency(context).currencySymbol}500",
                         style: TextStyle(
+                          fontFamily: 'Roboto',
                           color: Color(0xFF00001a),
                           fontSize: 19.5,
                           fontWeight: FontWeight.w700,
@@ -227,6 +230,7 @@ class _TransactionCardState extends State<TransactionCard> {
                       Text(
                         "-${currency(context).currencySymbol}1,000",
                         style: TextStyle(
+                          fontFamily: 'Roboto',
                           color: Color(0xFF00001a),
                           fontSize: 19.5,
                           fontWeight: FontWeight.w700,
