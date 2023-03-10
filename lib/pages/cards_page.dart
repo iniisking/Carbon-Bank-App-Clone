@@ -20,12 +20,16 @@ class CardsPage extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              const Text(
-                'Cards',
-                style: TextStyle(
-                    fontSize: 25,
-                    color: Color.fromARGB(255, 1, 17, 30),
-                    fontWeight: FontWeight.w500),
+              // ignore: prefer_const_constructors
+              Padding(
+                padding: const EdgeInsets.only(left: 30.0),
+                child: const Text(
+                  'Cards',
+                  style: TextStyle(
+                      fontSize: 25,
+                      color: Color.fromARGB(255, 1, 17, 30),
+                      fontWeight: FontWeight.w500),
+                ),
               ),
               const SizedBox(
                 height: 20,

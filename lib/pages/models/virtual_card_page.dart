@@ -1,6 +1,10 @@
 // ignore_for_file: sort_child_properties_last, prefer_const_constructors
 
+import 'package:carbonbankapp/pages/models/virtual_card_front.dart';
 import 'package:flutter/material.dart';
+import 'dart:math';
+
+import '../virtual_card_back.dart';
 
 class VirtualCardPage extends StatefulWidget {
   const VirtualCardPage({super.key});
@@ -10,6 +14,14 @@ class VirtualCardPage extends StatefulWidget {
 }
 
 class _VirtualCardPageState extends State<VirtualCardPage> {
+  bool isFront = true;
+  double angle = 0;
+  void _flip() {
+    setState(() {
+      angle = (angle + pi) % (2 * pi);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,71 +29,61 @@ class _VirtualCardPageState extends State<VirtualCardPage> {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 25),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Image.asset(
-                        "lib/images/credit card chip3.png",
-                        height: 40,
-                        color: Colors.white,
-                      ),
-                      Image.asset(
-                        "lib/images/mastercard.png",
-                        height: 40,
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Center(
-                    child: Text(
-                      "5944 7201 101 3960",
-                      style: TextStyle(
-                        fontFamily: 'OCR-A',
-                        fontSize: 23,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        letterSpacing: 2,
-                      ),
+            child: TweenAnimationBuilder(
+                tween: Tween<double>(begin: 0, end: angle),
+                duration: Duration(seconds: 1),
+                builder: (BuildContext context, double val, __) {
+                  if (val >= (pi / 2)) {
+                    isFront = false;
+                  } else {
+                    isFront = true;
+                  }
+
+                  return Transform(
+                    alignment: Alignment.center,
+                    transform: Matrix4.identity()
+                      ..setEntry(3, 2, 0.001)
+                      ..rotateY(val),
+                    child: Container(
+                      height: 235,
+                      width: 335,
+                      child: isFront
+                          ? VirtualCardFront()
+                          : Transform(
+                              alignment: Alignment.center,
+                              transform: Matrix4.identity()..rotateY(pi),
+                              child: VirtualCardBack(),
+                            ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Text(
-                    "JJ THOMPSON",
-                    style: TextStyle(
-                      fontFamily: 'OCR-A',
-                      fontSize: 20,
-                      color: Colors.white,
-                      letterSpacing: 1.5,
-                    ),
-                  ),
-                  Text(
-                    "03/25",
-                    style: TextStyle(
-                      fontFamily: 'OCR-A',
-                      fontSize: 20,
-                      color: Colors.white,
-                      letterSpacing: 1.5,
-                    ),
-                  ),
-                ],
-              ),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('lib/images/purple-pattern.jpg'),
-                  fit: BoxFit.cover,
-                ),
-                borderRadius: BorderRadius.circular(16),
-              ),
-            ),
+                  );
+                }),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+              isFront
+                  ? GestureDetector(
+                      onTap: _flip,
+                      child: Text(
+                        "Show details",
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Color(0xFF5D2ECE),
+                            fontWeight: FontWeight.w600),
+                      ))
+                  : GestureDetector(
+                      onTap: _flip,
+                      child: Text(
+                        "Hide details",
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Color(0xFF5D2ECE),
+                            fontWeight: FontWeight.w600),
+                      ))
+            ]),
           )
         ],
       ),
