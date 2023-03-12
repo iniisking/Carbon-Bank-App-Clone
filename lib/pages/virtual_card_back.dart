@@ -11,7 +11,7 @@ class _VirtualCardFrontState extends State<VirtualCardBack> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 9),
       // ignore: sort_child_properties_last
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,7 +102,7 @@ class _VirtualCardFrontState extends State<VirtualCardBack> {
               ),
               Image.asset(
                 "lib/images/mastercard.png",
-                height: 60,
+                height: 35,
               ),
             ],
           )

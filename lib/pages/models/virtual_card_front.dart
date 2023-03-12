@@ -11,7 +11,7 @@ class _VirtualCardFrontState extends State<VirtualCardFront> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
       // ignore: sort_child_properties_last
       child: Column(children: [
         // ignore: prefer_const_constructors
@@ -20,18 +20,30 @@ class _VirtualCardFrontState extends State<VirtualCardFront> {
         ),
         Image.asset(
           "lib/images/carbonlogo.png",
-          height: 120,
+          height: 100,
         ),
         // ignore: prefer_const_constructors
         SizedBox(
-          height: 10,
+          height: 35,
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            // ignore: prefer_const_constructors
+            Text(
+              "OWONIKOKO PETERS M.",
+              // ignore: prefer_const_constructors
+              style: TextStyle(
+                fontFamily: 'OCR-A',
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                letterSpacing: 2,
+              ),
+            ),
             Image.asset(
               "lib/images/mastercard.png",
-              height: 60,
+              height: 35,
             ),
           ],
         ),

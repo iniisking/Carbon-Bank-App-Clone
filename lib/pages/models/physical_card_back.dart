@@ -13,7 +13,7 @@ class _PhysicalCardBackState extends State<PhysicalCardBack> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 9),
       // ignore: sort_child_properties_last
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,7 +102,7 @@ class _PhysicalCardBackState extends State<PhysicalCardBack> {
               ),
               Image.asset(
                 "lib/images/mastercard.png",
-                height: 60,
+                height: 35,
               ),
             ],
           )
