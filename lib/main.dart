@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:carbonbankapp/pages/card_pin_page.dart';
 import 'package:carbonbankapp/pages/main_page.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Lato'),
       debugShowCheckedModeBanner: false,
-      home: MainPage(),
+      home: CardPinPage(),
     );
   }
 }
