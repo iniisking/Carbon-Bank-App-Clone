@@ -1,3 +1,5 @@
+import 'package:carbonbankapp/api/local_auth_api.dart';
+import 'package:carbonbankapp/pages/show_pin_page.dart';
 import 'package:flutter/material.dart';
 
 class CardPinPage extends StatefulWidget {
@@ -29,7 +31,7 @@ class _CardPinPageState extends State<CardPinPage> {
         ),
         // ignore: prefer_const_constructors
         title: Text(
-          'Block Card',
+          'Card PIN',
           // ignore: prefer_const_constructors
           style: TextStyle(
             fontSize: 20,
@@ -117,50 +119,63 @@ class _CardPinPageState extends State<CardPinPage> {
             child: Column(
               children: [
                 //view card pin button
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.all(10),
-                          child: Image.asset(
-                            'lib/images/eye.png',
-                            color: Colors.yellow,
-                            height: 15,
+                GestureDetector(
+                  onTap: () async {
+                    final isAuthenticated = await LocalAuthApi.authenticate();
+                    if (isAuthenticated) {
+                      // ignore: use_build_context_synchronously
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (context) => ShowPinPage(),
+                        ),
+                      );
+                    }
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            padding: EdgeInsets.all(10),
+                            child: Image.asset(
+                              'lib/images/eye.png',
+                              color: Colors.yellow,
+                              height: 15,
+                            ),
+                            decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.shade400,
+                                  spreadRadius: 0.5,
+                                  blurRadius: 2,
+                                  blurStyle: BlurStyle.outer,
+                                  offset: Offset(1, 1),
+                                ),
+                              ],
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(6),
+                            ),
                           ),
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.shade400,
-                                spreadRadius: 0.5,
-                                blurRadius: 2,
-                                blurStyle: BlurStyle.outer,
-                                offset: Offset(1, 1),
-                              ),
-                            ],
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(6),
+                          SizedBox(
+                            width: 15,
                           ),
-                        ),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        Text(
-                          'View Card PIN',
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: Color(0xFF031B4A),
-                              fontWeight: FontWeight.w600),
-                        ),
-                      ],
-                    ),
-                    ImageIcon(
-                      AssetImage("lib/images/right-arrow.png"),
-                      size: 15,
-                      color: Color(0xFF5D2ECE),
-                    ),
-                  ],
+                          Text(
+                            'View Card PIN',
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Color(0xFF031B4A),
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      ),
+                      ImageIcon(
+                        AssetImage("lib/images/right-arrow.png"),
+                        size: 15,
+                        color: Color(0xFF5D2ECE),
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: 30,
