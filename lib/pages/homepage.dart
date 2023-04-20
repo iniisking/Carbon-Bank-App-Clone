@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
                 //circular avatar
 
                 CircleAvatar(
-                  backgroundImage: AssetImage("assets/luffy.png"),
+                  backgroundImage: AssetImage("assets/Ini.jpg"),
                 ),
 
                 SizedBox(width: 10),
@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                 //text
 
                 Text(
-                  "Hi, Luffy",
+                  "Hello, Ini",
                   style: TextStyle(
                       fontSize: 20,
                       color: Colors.black,

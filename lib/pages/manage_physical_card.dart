@@ -3,6 +3,8 @@
 import 'package:carbonbankapp/pages/card_pin_page.dart';
 import 'package:flutter/material.dart';
 
+import 'manage_channels.dart';
+
 class ManagePhysicalCard extends StatefulWidget {
   const ManagePhysicalCard({super.key});
 
@@ -32,7 +34,7 @@ class _ManagePhysicalCardState extends State<ManagePhysicalCard> {
         ),
         // ignore: prefer_const_constructors
         title: Text(
-          'Block Card',
+          'Manage Card',
           // ignore: prefer_const_constructors
           style: TextStyle(
             fontSize: 20,
@@ -193,66 +195,76 @@ class _ManagePhysicalCardState extends State<ManagePhysicalCard> {
                   height: 30,
                 ),
                 //  Manage card button
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.all(10),
-                          // ignore: sort_child_properties_last
-                          child: Image.asset(
-                            'lib/images/manage-card.png',
-                            color: Colors.yellow,
-                            height: 15,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => const ManageChannels()),
+                      ),
+                    );
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            padding: EdgeInsets.all(10),
+                            // ignore: sort_child_properties_last
+                            child: Image.asset(
+                              'lib/images/manage-card.png',
+                              color: Colors.yellow,
+                              height: 15,
+                            ),
+                            decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.shade400,
+                                  spreadRadius: 0.5,
+                                  blurRadius: 2,
+                                  blurStyle: BlurStyle.outer,
+                                  offset: Offset(1, 1),
+                                ),
+                              ],
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(6),
+                            ),
                           ),
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.shade400,
-                                spreadRadius: 0.5,
-                                blurRadius: 2,
-                                blurStyle: BlurStyle.outer,
-                                offset: Offset(1, 1),
+                          SizedBox(
+                            width: 15,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              Text(
+                                'Manage Card',
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    color: Color(0xFF031B4A),
+                                    fontWeight: FontWeight.w400),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                'Choose where your card works',
+                                style: TextStyle(
+                                  color: Color(0xFF6B778C),
+                                ),
                               ),
                             ],
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(6),
                           ),
-                        ),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          // ignore: prefer_const_literals_to_create_immutables
-                          children: [
-                            Text(
-                              'Manage Card',
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  color: Color(0xFF031B4A),
-                                  fontWeight: FontWeight.w400),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              'Choose where your card works',
-                              style: TextStyle(
-                                color: Color(0xFF6B778C),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    ImageIcon(
-                      AssetImage("lib/images/right-arrow.png"),
-                      size: 15,
-                      color: Color(0xFF5D2ECE),
-                    ),
-                  ],
+                        ],
+                      ),
+                      ImageIcon(
+                        AssetImage("lib/images/right-arrow.png"),
+                        size: 15,
+                        color: Color(0xFF5D2ECE),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
